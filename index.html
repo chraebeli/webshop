@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-<div style="position:relative;">
-  <div style="opacity:0.5;position:absolute;left:50px;top:-30px;width:300px;height:150px;background-color:#40B3DF"></div>
-  <div style="opacity:0.3;position:absolute;left:120px;top:20px;width:100px;height:170px;background-color:#73AD21"></div>
-  <div style="margin-top:30px;width:360px;height:130px;padding:20px;border-radius:10px;border:10px solid #EE872A;font-size:120%;">
-    <h1>CSS = Styles and Colors</h1>
-    <div style="letter-spacing:12px;font-size:15px;position:relative;left:25px;top:25px;">Manipulate Text</div>
-    <div style="color:#40B3DF;letter-spacing:12px;font-size:15px;position:relative;left:25px;top:30px;">Colors,
-    <span style="background-color:#B4009E;color:#ffffff;"> Boxes</span></div>
-  </div>
-</div>
-
-</body>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/layout_1.css">
+	</head>
+	<body>
+		<header>
+			<a href="index.html"><img src="images/logo.png" alt="logo" id="image_menulogo"></img></a>
+			<textarea id="searchbar">Search your product</textarea>
+			<a href="" id="link_userinfo">Benutzerinformationen</a>
+		</header>
+		<div id="navigation">
+			<h2>Produktekategorien<h2>
+			<select>
+				<option value="kleingeraete">Kleingeraete</option>
+				<option value="arbeitskleidung">Arbeitskleidung</option>
+				<option value="signalisation">Signalisation</option>
+			</select>
+		</div>
+		<div id="main_container">
+			<h1>This field is to display main content like products</h1>
+		</div>
+		<div id="discounts">
+			<h1>This field is to display discounts</h1>
+		</div>
+		<footer>
+			created by S.Hermann & A.Krebs // Webprogramming // BFH TI
+		</footer>
+	</body>
 </html>
