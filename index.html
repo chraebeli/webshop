@@ -1,30 +1,66 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="css/layout_1.css">
-	</head>
-	<body>
-		<header>
-			<a href="index.html"><img src="images/logo.png" alt="logo" id="image_menulogo"></img></a>
-			<textarea id="searchbar">Search your product</textarea>
-			<a href="" id="link_userinfo">Benutzerinformationen</a>
-		</header>
-		<div id="navigation">
-			<h2>Produktekategorien<h2>
-			<select>
-				<option value="kleingeraete">Kleingeraete</option>
-				<option value="arbeitskleidung">Arbeitskleidung</option>
-				<option value="signalisation">Signalisation</option>
-			</select>
-		</div>
-		<div id="main_container">
-			<h1>This field is to display main content like products</h1>
-		</div>
-		<div id="discounts">
-			<h1>This field is to display discounts</h1>
-		</div>
-		<footer>
-			created by S.Hermann & A.Krebs // Webprogramming // BFH TI
-		</footer>
-	</body>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/layout_2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+
+        <nav class="navigation-bar">
+            <div class="left">
+                <a href="www.facebook.com" class="left">Kontakt</a>
+                <a href="#hilfe" class="left">Hilfe</a>
+                <a href="#überungs" class="left">Über uns</a>
+                <a href="#socialMedia" class="left">Social Media</a>
+            </div>
+            <div class="right">
+                <a href="#ihrKonto" class="right">Ihr Konto</a>
+                <a href="#anmelden" class="right">Anmelden</a>
+            </div>
+        </nav>
+
+
+    </header>
+    <div class="logobar">
+        <img src="images/Logo.png" width="120" alt="logo">
+        <input type="text" placeholder="Search.." name="search">
+        <a href="#warenkorb">Warenkorbb</a>
+    </div>
+    <div>
+        <div class="categories">
+            <ul>
+                <li class black-large-padding 32>
+                    <h2>Kategorien</h2>
+                </li>
+                <li class padding 16> <a href="#Signalisation">Signalisation</a></li>
+                <li class padding 16> <a href="#Arbeitskleidung">Arbeitskleidung</a></li>
+                <li class padding 16> <a href="#Kleingeräte">Kleingeräte</a></li>
+                <li> <img src="\images\Arbeitskleidung\107010.jpg" alt="s" width="100"></li>
+                <li> <img src="\images\Arbeitskleidung\107011.jpg" alt="s" width="100"></li>
+                <li> <img src="\images\Arbeitskleidung\107127.Blau.jpg" alt="s" width="100"></li>
+                <li> <img src="\images\Arbeitskleidung\107059.Beige.jpg" alt="s" width="100"></li>
+            </ul>
+        </div>
+        <div class="mainArea">
+            <h2>Main Area</h2>
+        </div>
+
+        <div class="aktionen">
+            <h2>Aktionen</h2>
+        </div>
+    </div>
+    <footer>
+        <h3 class="footer">Kontakt</h3>
+        <h3 class="footer">Hilfe</h3>
+        <h3 class="footer">Über uns</h3>
+        <h3 class="footer">Social Media</h3>
+    </footer>
+</body>
+
 </html>
