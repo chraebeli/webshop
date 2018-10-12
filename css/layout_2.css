@@ -45,15 +45,17 @@ body {
 	opacity: 0.7;
     width:20%;
     background-color: black;
+	list-style:none;
+	color: white;
 }
 
-.categories h2 {
-    color: white;
+.categories li {
+	list-style:none;
 }
 
-.categories a {
+.categories li a{
+	color: white;
 	text-decoration: none;
-    color: white;
 }
 
 .mainArea {
