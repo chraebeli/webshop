@@ -1,9 +1,16 @@
+<?php
+include "php/functions.php";
+$language = get_param('lang', 'en');
+$pageId = get_param('id', -1);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <link rel="stylesheet" href="css/layout_2.css">
-	<link rel="icon" href="images/logo.png" type="image/png" sizes="32x32">
+    <link rel="shortcut icon" href="images/logo.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,35 +28,34 @@
             <a href="pages/login.html" class="right">Anmelden</a>
         </nav>
         <div class="logobar">
-            <a href="index.html"> <img src="images/Logo.png" width="120" alt="logo"></a>
+            <a href="index.php"> <img src="images/Logo.png" width="120" alt="logo"></a>
             <input type="text" placeholder="Search.." name="search">
-            <button type="button" oneclick=> Suchen </button>
-            <a class="right" href="pages/shoppingcart.html">
-				<img src="images/shoppingcart.png" alt="shoppingcart">
-			</a>
+            <a href="#result" class="material-icons" style=" vertical-align: middle;text-decoration:none">search</a>
+            <a href="pages/shoppingcart.html" class="material-icons right" style="vertical-align: middle; text-decoration: none">shopping_cart</a>
+
+            </a>
         </div>
     </header>
 
-    <div class="content">
-        <div class="categories">
-            <ul>
-                <li>
-                    <h2>Kategorien</h2>
-                </li>
-                <li> <a href="pages/categories/signalisation.html">Signalisation</a></li>
-                <li> <a href="pages/categories/arbeitskleidung.html">Arbeitskleidung</a></li>
-                <li> <a href="pages/categories/kleingeraete.html">Kleingeräte</a></li>
-            </ul>
+
+    <main class="main">
+        <nav class="navigation_main">
+            <?php navigation($language, $pageId);?>
+            <?php languages($language, $pageId);?>
+        </nav>
+        <?php content($pageId);?>
         </div>
 
-        <div class="mainArea">
-            <h2>MainArea</h2>
-        </div>
+        <table class="table">
+            <tr>
+                <?php itemsHeader($pageId, $language);?>
+            </tr>
+            <?php items($pageId, $language);?>
+        </table>
 
         <div class="sales">
-            <h2>Aktionen</h2>
         </div>
-    </div>
+    </main>
 
     <footer>
         <h3>Kontakt</h3>
