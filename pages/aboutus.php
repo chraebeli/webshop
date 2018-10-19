@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<?php include('../php/navigation_builder.php'); ?>
+	<?php require_once('../php/navigation_builder_left.php'); ?>
     <title>Ueber uns SK CE</title>
 </head>
 
@@ -22,7 +22,7 @@
             <a href="../pages/login.php" class="right">Anmelden</a>
         </nav>
         <div class="logobar">
-            <a href="../index.php"> <img src="../images/Logo.png" width="120" alt="logo"></a>
+            <a href="../index.php"> <img src="../images/Logo.png" id="logo" alt="logo"></a>
             <input type="text" placeholder="Search.." name="search">
             <button type="button" oneclick=> Suchen </button>
             <a class="right" href="shoppingcart.html">

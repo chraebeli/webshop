@@ -7,24 +7,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<?php include('php/navigation_builder.php'); ?>
+	<?php require_once('php/navigation_builder_left.php'); ?>
+	<?php require_once('php/navigation_builder_top.php'); ?>
     <title>Home SK CE</title>
 </head>
 
 <body>
     <header>
         <nav class="navigation-bar">
-			<a href="pages/contact.php" class="left">Kontakt</a>
-            <a href="pages/help.php" class="left">Hilfe</a>
-            <a href="pages/aboutus.php" class="left">Über uns</a>
-            <a href="https://www.facebook.com/" class="left">Social Media</a>
-            <a href="pages/register.php" class="right">Registrieren</a>
-            <a href="pages/login.php" class="right">Anmelden</a>
+			<?php $navigation_top->showTitles();?>
         </nav>
         <div class="logobar">
-            <a href="index.php"> <img src="images/Logo.png" width="120" alt="logo"></a>
+            <a href="index.php"> 
+				<img src="images/Logo.png" width="120px" alt="logo">
+			</a>
             <input type="text" placeholder="Search.." name="search">
-            <button type="button" oneclick=> Suchen </button>
+            <button type="button" onclick=> Suchen </button>
             <a class="right" href="pages/shoppingcart.html">
 				<img src="images/shoppingcart.png" alt="shoppingcart">
 			</a>

@@ -14,7 +14,7 @@ class Navigation {
 		foreach ($this->categories as $head) {
 			echo "<li>";
 				//echo "<a href='.?",$head['head'],"'>",$head['head'],"</a>";
-				echo "<a href='",$_SERVER['PHP_SELF'],"?",$head['head'],"'>",$head['head'],"</a>";
+				echo "<a href='",$_SERVER['PHP_SELF'],"?",urlencode($head['head']),"'>",$head['head'],"</a>";
 			echo "</li>";
 			if(isset($_GET[$head['head']])) {
 				$this->showChildCategories($head['head']);
@@ -56,3 +56,56 @@ class Navigation {
 		}
 	}
 }
+
+class Headmenu {
+	//Definition der Eigenschaften
+	public $titles;
+	
+	//Definition der Methode addHeadCategorie
+	function addTitle($Title) {
+		$this->titles[] = array("title" => $Title);
+	}
+	
+	function showTitles(){
+		echo "<ul>";
+		foreach ($this->titles as $title) {
+			echo "<li>";
+				echo "<a href='",$_SERVER['PHP_SELF'],"?",urlencode($title['title']),"'>",$title['title'],"</a>";
+			echo "</li>";	
+		}
+		echo "</ul>";
+	}
+	
+	function addSubTitle($Title, $SubTitle){
+		foreach ($this->titles as &$title){
+			if(strcmp($title['title'], $Title)==0){
+				$title[] = $SubTitle;
+			}
+		}
+		unset($title);
+	}
+	
+	function showAllTitles(){
+		foreach ($this->titles as $elements){
+			echo "<li>",$elements['title'];
+			unset($elements['title']);
+			foreach($elements as $element) {
+				echo "<ul>",$element,"</ul>";
+			}
+			echo "</li>";
+		}
+	}
+}	
+/*	function showSubTitles($Title){
+		foreach ($this->titles as $elements){
+			if($elements['title']==$Title){
+				unset($elements['head']);
+				foreach($elements as $element) {
+					echo "<ul><li>";
+						echo "<a href='",$_SERVER['PHP_SELF'],"?",$element,"'>",$element,"</a>";
+					echo "</li></ul>";
+				}
+			}
+		}	
+	}
+}*/

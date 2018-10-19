@@ -1,5 +1,7 @@
 <?php
-require_once('navigation.php');
+require_once('classes.php');
+
+// Create left navigation
 $navigation = new Navigation();
 $navigation->addHeadCategorie("Signalisation");
 $navigation->addHeadCategorie("Arbeitskleidung");
