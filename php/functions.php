@@ -18,16 +18,31 @@ function add_param($url, $name, $value)
     return $url . $sep . $name . "=" . urlencode($value);
 }
 
+function test()
+{
+    echo "adsfaldfjl";
+}
+
 function navigation($language, $pageId)
 {
     $menu = array
         (
-        array("Arbeitskleidung", "Handschuhe", "Schuhe", "Helme"),
+        array('Arbeitskleidung', "Handschuhe", "Schuhe", "Helme"),
         array("Kleingeräte", "Bohrmaschinen", "Winkelschleifer", "Rührwerk"),
-        array("Signalisation", "Signalisationstafeln", "Absperrlatten"),
+        array("Signalisation", "Signalisationstafeln", "Absperrlatten", "Faltsignale", "Markierungshut"),
+
     );
     $urlbase = add_param($_SERVER['PHP_SELF'], "lang", $language);
-    $currentCategory = array_search($pageId, array_column($menu, '0'));
+
+    $currentCategory = 0;
+    $currentSubCategory = 0;
+
+    for ($currentSubCategory; $currentSubCategory < 6; $currentSubCategory++) {
+        $currentCategory = array_search($pageId, array_column($menu, $currentSubCategory));
+        if ($currentCategory !== false) {
+            break;
+        }
+    }
 
     for ($i = 0; $i <= count($menu) - 1; $i++) {
         for ($j = 0; $j <= count($menu[$i]) - 1; $j++) {
@@ -36,20 +51,12 @@ function navigation($language, $pageId)
             if ($j == 0) {
                 echo "<a class=  $class  href=   $url >" . $menu[$i][$j] . "</a>";
             }
-
-            if (($currentCategory) == $i & $currentCategory !== false & $j > 0) {
+            if ($currentCategory == $i & $pageId !== -1 & $j > 0) {
                 $class = $pageId == $menu[$i][$j] ? 'sub_active' : 'sub_inactive';
                 echo "<a class=  $class  href=   $url >" . $menu[$currentCategory][$j] . "</a>";
             }
         }
     }
-}
-
-function itemsHeader()
-{
-
-    $headers = array("Bild", "Art. Nr.", "Beschreibung", "Preis");
-    echo '<th>' . implode('</th><th>', $headers);
 }
 
 function items($pageId, $language)
@@ -61,16 +68,16 @@ function items($pageId, $language)
         (
         array(107010, "Handschuhe Top-Flex rot, 12 Paar", "36.00"),
         array(107011, "Handschuhe Top- FlexThermo, 10 Paar", "45.00"),
-        array(107059.1, "Arbeitskleidung", "Schuhe"),
-        array(107059.2, "Arbeitskleidung", "Schuhe"),
-        array(107059.3, "Arbeitskleidung", "Schuhe"),
-        array(107059.4, "Arbeitskleidung", "Schuhe"),
-        array(107059.5, "Arbeitskleidung", "Schuhe"),
-        array(107059.6, "Arbeitskleidung", "Schuhe"),
-        array(107059.7, "Arbeitskleidung", "Schuhe"),
-        array(107127.1, "Arbeitskleidung", "Helme"),
-        array(107127.2, "Arbeitskleidung", "Helme"),
-        array(107127.3, "Arbeitskleidung", "Helme"),
+        array(107059.1, "Sicherheitsschuh Stuco Hiking, Blau", "109.50"),
+        array(107059.2, "Sicherheitsschuh Stuco Hiking, Beige", "109.50"),
+        array(107059.3, "Sicherheitsschuh Stuco Hiking, Gelb", "109.50"),
+        array(107059.4, "Sicherheitsschuh Stuco Hiking, Grau", "109.50"),
+        array(107059.5, "Sicherheitsschuh Stuco Hiking, Grün", "109.50"),
+        array(107059.6, "Sicherheitsschuh Stuco Hiking, Orange", "109.50"),
+        array(107059.7, "Sicherheitsschuh Stuco Hiking, Rot", "109.50"),
+        array(107127.1, "Schutzhelm ELITE mit Drehrad, Blau", "14.05"),
+        array(107127.2, "Schutzhelm ELITE mit Drehrad, Gelb", "14.05"),
+        array(107127.3, "Schutzhelm ELITE mit Drehrad, Weiss", "14.05"),
         array(107437, "Softshell- Jacke Kl. 1 orange/anthrazit", "122.65"),
         array(107510, "Warnlatzhose Kl. 2 orange/anthrazit", "65.90"),
         array(120001, "BS 18 LTX BL QI Kar Akku-Bohrschrauber", "120.00"),
@@ -91,7 +98,7 @@ function items($pageId, $language)
 
     $itemsCategory = array
         (
-        array(107010, "Arbeitskleidung", "Handschuhe"),
+        array(107010, "Arbeitskeidung", "Handschuhe"),
         array(107011, "Arbeitskleidung", "Handschuhe"),
         array(107059.1, "Arbeitskleidung", "Schuhe"),
         array(107059.2, "Arbeitskleidung", "Schuhe"),
@@ -102,7 +109,7 @@ function items($pageId, $language)
         array(107059.7, "Arbeitskleidung", "Schuhe"),
         array(107127.1, "Arbeitskleidung", "Helme"),
         array(107127.2, "Arbeitskleidung", "Helme"),
-        array(107127.3, "Arbeitskleidung", "Helme"),
+        array(107127.3, "Arbeitskleidun", "Helme"),
         array(107437, "Arbeitskleidung", "Arbeitskleidung"),
         array(107510, "Arbeitskleidung", "Arbeitskleidung"),
         array(120001, "Kleingeräte", "Bohrmaschinen"),
@@ -111,7 +118,7 @@ function items($pageId, $language)
         array(120033, "Kleingeräte", "Winkelschleifer"),
         array(120049, "Kleingeräte", "Winkelschleifer"),
         array(120050, "Kleingeräte", "Winkelschleifer"),
-        array(108011, "Signalisation", "Markierungshüte"),
+        array(108011, "Signalisation", "Markierungshut"),
         array(108017, "Signalisation", "Faltsignale"),
         array(108027, "Signalisation", "Absperrlatten"),
         array(108108, "Signalisation", "Signalisationstafeln"),
@@ -121,28 +128,42 @@ function items($pageId, $language)
         array(108202, "Signalisation", "Signalisationstafeln"),
     );
 
-    $i = 0;
-    foreach ($itemsCategory as $item) {
+    $headers = array("Bild", "Art. Nr.", "Beschreibung", "Preis", " ", " ");
 
-        $urlbase = add_param($_SERVER['PHP_SELF'], "lang", $language);
-        $url = add_param($urlbase, "id", $item[0]);
+    if ($pageId > 10000) {
+        echo "<article><div class=product_img><img src=images/Items/$pageId.jpg width=420px> </div>" . "<div class=product_descritpion><h2>" . $items[array_search($pageId, array_column($items, '0'))][1] . "<h3>CHF  " . $items[array_search($pageId, array_column($items, '0'))][2] .
+            "<select class=dropdown_seize>
+        <option value=1 selected disabled hidden>Grössen wählen</option>
+        <option value=S>S</option>
+        <option value=M>M</option>
+        <option value=L>L</option>
+        <option value=XL>XL</option>
+        type=submit value='Bestellen'/> <input class=button_order type=submit value='Bestellen'/><a/>";
+    } else {
+        echo "<table class=mainTable><tr><th>" . implode('</th><th>', $headers) . "</tr>";
+        $i = 0;
+        foreach ($itemsCategory as $item) {
+            $urlbase = add_param($_SERVER['PHP_SELF'], "lang", $language);
+            $url = add_param($urlbase, "id", $item[0]);
 
-        if ($pageId == $item[1] | $pageId == -1) {
-            echo "<tr>
-            <td>
-            <a class=  item  href=   $url >" . "<img src=images/Items/$item[0].jpg width=150> </a>" . '</td><td>' . implode('</td><td>', $items[$i]);
+            if ($pageId == $item[1] | $pageId == $item[2] | $pageId == -1) {
+                echo "<tr><td>
+            <a class=  item  href=   $url >" . "<img src=images/Items/$item[0].jpg width=150> </a>" . '</td><td>' . implode('</td><td>', $items[$i]) . '<td><input  type="text" placeholder="Stückzahl"/>' . "<a class=  item  href=   $url >" . "<td><input  type=submit value='In den Warbenkorb'/><a/>";
+            }
+            $i++;
         }
-        $i++;
+        echo "</tbody> </table>";
     }
+
 }
 
 function languages($language, $pageId)
 {
-    $languages = ['de', 'fr', 'en'];
+    $languages = ['en', 'fr', 'de'];
     $urlbase = add_param($_SERVER['PHP_SELF'], 'id', $pageId);
     foreach ($languages as $l) {
         $class = $language == $l ? 'active' : 'inactive';
-        echo '<a class="' . $class . '" href="';
+        echo '<a class="right", ' . $class . '" href="';
         echo add_param($urlbase, 'lang', $l) . '">';
         echo strtoupper($l) . '</a>';
     }
@@ -158,12 +179,11 @@ function t($key)
     global $language;
     $texts = array(
         'page' => array(
-            'de' => 'Seite',
-            'fr' => 'Page',
-            'en' => 'Page'),
+            'de' => 'Seite', 'fr' => 'Page', 'en' => 'Page'),
         'content' => array(
             'de' => 'Willkommen auf der Seite',
             'fr' => 'Bienvenue `a la page ',
-            'en' => 'Welcome to the page '));
+            'en' => 'Welcome to the page '),
+    );
     return $texts[$key][$language] ?? "[$key]";
 }

@@ -1,33 +1,39 @@
-
 body {
-    font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;  
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-/* ----- Header ----- */ 
-.navigation-bar  {
-	background-color: black;
+/* ----- Header ----- */
+
+.navigation-bar {
+    background-color: grey;
     width: 100%;
     height: 46px;
     overflow: hidden;
 }
-.navigation-bar *  {
-    
+
+.navigation-bar *, .navigation-bar.active {
     float: left;
-    color: aliceblue;
+    color: black;
     text-decoration: none;
     padding: 12px 14px;
+}
 
+.navigation-bar *:hover {
+    text-decoration: underline;
+    background-color: #ddd;
+    color: black;
 }
 
 /* fallback */
+
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
     src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
-  }
-  
-  .material-icons {
+}
+
+.material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -40,102 +46,121 @@ body {
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-  }
-
-.navigation-bar *:hover {
-    text-decoration: underline;
-    background-color: #ddd;
-    color: black;
-}
-
-.navigation-bar *.active {
-    background-color: #4CAF50;
-    color: white;
 }
 
 .right {
-   float: right;
+    float: right;
 }
 
 .logobar {
-   border-bottom: 1px solid rgba(0 , 0, 0, 0.54); 
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.54);
 }
-
 
 .logobar img {
     margin: 10px;
     vertical-align: middle;
-
 }
 
-.logobar input[type=text]  {
+.logobar input[type=text] {
     border-radius: 10px;
-    border: 1px solid #ccc;  
-    width: 400px;    
+    border: 1px solid #ccc;
+    width: 400px;
     padding: 14px;
-    }
+}
 
+header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
 
 /* ----- Content ----- */
-       
-    .navigation_main * {    
-    color: rgba(0 , 0, 0, 0.54);
+
+body {
+    margin-top: 187px;
+}
+
+.navigation_main {
+    width: 15%;
+    height: 800px;
+}
+
+.navigation_main * {
+    color: rgba(0, 0, 0, 0.54);
     display: block;
-    width: 300px;
-    }
+}
 
-    .active, .sub_active {     
-        font-weight: bold;
-    }
+.sub_inactive, .sub_active {
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 15px;
+}
 
-    .inactive, .active {
-        margin-left: 20px;
-        margin-top: 15px;
-        text-decoration: none;
-    }
+.navigation_main, .mainTable, .sales, .product_img {
+    float: left;
+}
 
-    .sub_inactive {
-        text-decoration: none;
-        margin-left: 30px;
-        font-size: 15px;
-    }
+.active, .sub_active {
+    font-weight: bold;
+}
 
+.inactive, .active {
+    margin-left: 20px;
+    margin-top: 15px;
+    text-decoration: none;
+}
 
-    table, th, tr{    
-        text-align: left;
-        border-collapse: collapse;
-    } 
+table, .article {
+    width: 62%;
+}
 
-    td , th  {
-        padding-left: 10PX;
-        border-bottom: 1px solid rgba(0 , 0, 0, 0.54);
-    }
+table, th, tr {
+    text-align: left;
+    border-collapse: collapse;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.54);
+}
 
-    th {    
-        background-color:  rgba(0 , 0, 0, 0.3);   
-    }  
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+th {
+    background-color: rgba(0, 0, 0, 0.3);
+}
 
-    .sales {
-        float: right;
-        width: 20%;
-        height: 1000px;
-        background-color: red;  
-    }
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
+.product_descritpion {
+    float: left;
+    text-align: left;
+    height: 800px;
+    ;
+}
 
-    p {
-        display: block;
-        margin-top: 1em;
-        margin-bottom: 1em;
-        margin-left: 0;
-        margin-right: 0;
-        font-size: 20px;
-    }
+.product_descritpion * {
+    display: block;
+}
 
+.button_order {
+    position: relative;
+    top: 200px;
+    left: 60%;
+    height: 50px;
+    width: 40%;
+    text-align: center;
+}
+
+.sales {
+    float: right;
+    width: 22%;
+    height: 800px;
+}
+
+footer * {
+    display: inline;
+    background-color: red;
+    float: left;
+    width: 25%;
+}
 
 /* ----- Footer ----- */
-
-

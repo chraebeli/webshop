@@ -20,42 +20,37 @@ $pageId = get_param('id', -1);
 <body>
     <header>
         <nav class="navigation-bar">
-            <a href="pages/contact.html" class="left">Kontakt</a>
-            <a href="pages/help.html" class="left">Hilfe</a>
-            <a href="pages/aboutus.html" class="left">Über uns</a>
-            <a href="https://www.facebook.com/" class="left">Social Media</a>
-            <a href="pages/register.html" class="right">Registrieren</a>
-            <a href="pages/login.html" class="right">Anmelden</a>
+            <a href="pages/contact.html">Kontakt</a>
+            <a href="pages/help.html">Hilfe</a>
+            <a href="pages/aboutus.html">Über uns</a>
+            <a href="https://www.facebook.com/">Social Media</a>
+            <?php languages($language, $pageId);?>
+            <span class="right"> | </span>
+            <a class="right" href="pages/register.html">Registrieren</a>
+            <a class="right" href="pages/login.html" >Anmelden</a>
+
         </nav>
         <div class="logobar">
             <a href="index.php"> <img src="images/Logo.png" width="120" alt="logo"></a>
             <input type="text" placeholder="Search.." name="search">
             <a href="#result" class="material-icons" style=" vertical-align: middle;text-decoration:none">search</a>
+            <?php content($pageId);?>
             <a href="pages/shoppingcart.html" class="material-icons right" style="vertical-align: middle; text-decoration: none">shopping_cart</a>
-
-            </a>
         </div>
     </header>
 
 
-    <main class="main">
+    <div class="main">
         <nav class="navigation_main">
             <?php navigation($language, $pageId);?>
-            <?php languages($language, $pageId);?>
         </nav>
-        <?php content($pageId);?>
-        </div>
-
-        <table class="table">
-            <tr>
-                <?php itemsHeader($pageId, $language);?>
-            </tr>
+        <div>
             <?php items($pageId, $language);?>
-        </table>
-
-        <div class="sales">
         </div>
-    </main>
+        <span class="sales">
+            <span>adsfasfaf</span>
+</span>
+    </div>
 
     <footer>
         <h3>Kontakt</h3>
