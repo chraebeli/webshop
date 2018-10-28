@@ -36,24 +36,23 @@ $pageId = get_param('id', -1);
             </a>
         </div>
     </header>
-
-
     <main class="main">
-        <nav class="navigation_main">
-            <?php navigation($language, $pageId);?>
-            <?php languages($language, $pageId);?>
-        </nav>
-        <?php content($pageId);?>
-        </div>
-
-        <table class="table">
-            <tr>
-                <?php itemsHeader($pageId, $language);?>
-            </tr>
-            <?php items($pageId, $language);?>
-        </table>
-
-        <div class="sales">
+		<div id="main_nav">
+			<nav class="navigation_main">
+				<?php navigation($language, $pageId);?>
+				<?php languages($language, $pageId);?>
+			</nav>
+		</div>
+		<div id="main_content">
+			<?php content($pageId);?>
+			<table class="table">
+				<tr>
+					<?php itemsHeader($pageId, $language);?>
+				</tr>
+			<?php items($pageId, $language);?>
+			</table>
+		</div>
+        <div id="sales">
         </div>
     </main>
 
@@ -64,5 +63,4 @@ $pageId = get_param('id', -1);
         <h3>Social Media</h3>
     </footer>
 </body>
-
 </html>

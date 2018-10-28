@@ -117,13 +117,24 @@ body {
     tr:nth-child(even) {
         background-color: #f2f2f2;
     }
-
-    .sales {
+	#main_nav {
+		float: left;
+	}
+	
+	#main_content {
+		float: left;
+	}
+	
+    #sales {
         float: right;
         width: 20%;
         height: 1000px;
         background-color: red;  
     }
+	
+	footer {
+		clear: both;
+	}
 
 
     p {
