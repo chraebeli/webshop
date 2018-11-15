@@ -1,58 +1,38 @@
-<?php
-//Definition der Klasse Navigation
-class Navigation {
-	//Definition der Eigenschaften
-	public $categories;
-	
-	//Definition der Methode addHeadCategorie
-	function addHeadCategorie($HeadCategorie) {
-		$this->categories[] = array("head" => $HeadCategorie);
-	}
-	
-	function showCategories(){
-		echo "<ul>";
-		foreach ($this->categories as $head) {
-			echo "<li>";
-				//echo "<a href='.?",$head['head'],"'>",$head['head'],"</a>";
-				echo "<a href='",$_SERVER['PHP_SELF'],"?",$head['head'],"'>",$head['head'],"</a>";
-			echo "</li>";
-			if(isset($_GET[$head['head']])) {
-				$this->showChildCategories($head['head']);
-			}	
-		}
-		echo "</ul>";
-	}
-	
-	function addChildCategorie($HeadCategorie, $ChildCategorie){
-		foreach ($this->categories as &$categorie){
-			if(strcmp($categorie['head'], $HeadCategorie)==0){
-				$categorie[] = $ChildCategorie;
-			}
-		}
-		unset($categorie);
-	}
-	
-	function showAllCategories(){
-		foreach ($this->categories as $elements){
-			echo "<li>",$elements['head'];
-			unset($elements['head']);
-			foreach($elements as $element) {
-				echo "<ul>",$element,"</ul>";
-			}
-			echo "</li>";
-		}
-	}
-	
-	function showChildCategories($HeadCategorie){
-		foreach ($this->categories as $elements){
-			if($elements['head']==$HeadCategorie){
-				unset($elements['head']);
-				foreach($elements as $element) {
-					echo "<ul><li>";
-						echo "<a href='",$_SERVER['PHP_SELF'],"?",$element,"'>",$element,"</a>";
-					echo "</li></ul>";
-				}
-			}
-		}
-	}
-}
+<ul class="accordion-menu">
+    <li>
+        <div class="dropdownlink"><i class="fa fa-industry" aria-hidden="true"></i>Anlagen
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </div>
+        <ul class="submenuItems">
+            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>Anlagen anzeigen</a></li>
+            <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Anlagen hinzufügen</a></li>
+            <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Anlagen bearbeiten</a></li>
+            <li><a href="#"><i class="fa fa-trash-alt" aria-hidden="true"></i>Anlagen löschen</a></li>
+        </ul>
+    </li>
+    <li>
+        <div class="dropdownlink"><i class="fa fa-users" aria-hidden="true"></i>Kunden
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </div>
+        <ul class="submenuItems">
+            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>Kunden anzeigen</a></li>
+            <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Kunden hinzufügen</a></li>
+            <li><a href="#"><i class="fa fa-user-cog" aria-hidden="true"></i>Kunden bearbeiten</a></li>
+            <li><a href="#"><i class="fa fa-user-minus" aria-hidden="true"></i>Kunden löschen</a></li>
+        </ul>
+    </li>
+    <li>
+        <div class="dropdownlink"><i class="fa fa-tasks" aria-hidden="true"></i>Zuordnung
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </div>
+        <ul class="submenuItems">
+            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>Zuordnung anzeigen</a></li>
+            <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Zuordnung hinzufügen</a></li>
+            <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Zuordnung bearbeiten</a></li>
+            <li><a href="#"><i class="fa fa-trash-alt" aria-hidden="true"></i>Zuordnung löschen</a></li>
+        </ul>
+    </li>
+
+</ul>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'> </script>
+<script src="../js/index.js"></script>
