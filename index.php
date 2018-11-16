@@ -45,7 +45,7 @@ $pageId = get_param('id', -1);
             <?php navigation($language, $pageId);?>
         </nav>
         <div>
-            <?php items($pageId, $language);?>
+            <?php items($language, $pageId);?>
         </div>
         <span class="sales">
             <span>adsfasfaf</span>

@@ -59,7 +59,7 @@ function navigation($language, $pageId)
     }
 }
 
-function items($pageId, $language)
+function items($language, $pageId)
 {
 
     $headers = array("Bild", "Art. Nr.", "Beschreibung", "Preis");
@@ -152,9 +152,14 @@ function items($pageId, $language)
             }
             $i++;
         }
-        echo "</tbody> </table>";
+        echo "</body> </table>";
     }
 
+}
+
+function headNavigation()
+{
+	$urlbase = add_param($_SERVER['PHP_SELF'], "page", "contact");
 }
 
 function languages($language, $pageId)
