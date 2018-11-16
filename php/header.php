@@ -1,7 +1,7 @@
 <nav class=navigation-bar>
     <a href=pages/contact.html>Kontakt </a> <a href=pages/help.html>Hilfe </a> <a href=pages/aboutus.html>Über uns</a>
         <a href=https://www.facebook.com/>Social Media</a> <span class=right> | </span>
-        <a class=right href=pages/register.html>Registrieren </a> <a class=right href=logout.php>Abmelden</a>
+        <a class=right href=registration.php>Registrieren </a> <a class=right href=logout.php>Abmelden</a>
 
 </nav>
 <div class=logobar>

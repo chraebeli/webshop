@@ -6,9 +6,6 @@ $language = get_param('lang', 'en');
 $pageId = get_param('id', -1);
 ?>
 
-
-
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,18 +25,12 @@ $pageId = get_param('id', -1);
         <div>
             <?php allocate($language, $pageId);?>
         </div>
-        <span class="sales">
+        <!--<span class="sales">
             <span>adsfasfaf</span>
-        </span>
+        </span>-->
     </div>
-
-
-
     <footer class="footer">
-        <h3>Kontakt</h3>
-        <h3>Hilfe</h3>
-        <h3>Über uns</h3>
-        <h3>Social Media</h3>
+        <?php include "footer.php";?>
     </footer>
 </body>
 

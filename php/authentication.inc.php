@@ -17,11 +17,18 @@ if (!isset($_SESSION["email"])) {
 function checklogin($email, $password)
 {
     $db = new mysqli("localhost", "root", "", "webshop");
-    $stmt = $db->prepare(
-        "SELECT  *  FROM  customer  WHERE  email=?"
-    );
-    $stmt->bind_param('s', $email);
-    $stmt->execute();
+	if (!$db) {
+		throw new Exception("Verbindung fehlgeschlagen: " . mysqli_connect_error());
+	}
+	try {
+		$stmt = $db->prepare(
+			"SELECT  *  FROM  customer  WHERE  email=?"
+		);
+		$stmt->bind_param('s', $email);
+		$stmt->execute();
+	} catch (Exception $e){
+		echo "Bei der Passwortprüfung ist ein Fehler aufgetreten. Fehlercode: ",$e->getMessage(), "\n";
+	}
     $result = $stmt->get_result();
     if (!$result || $result->num_rows !== 1) {
         return false;}
