@@ -25,9 +25,9 @@ $pageId = get_param('id', -1);
         <div>
             <?php allocate($language, $pageId);?>
         </div>
-        <!--<span class="sales">
+        <span class="sales">
             <span>adsfasfaf</span>
-        </span>-->
+        </span>
     </div>
     <footer class="footer">
         <?php include "footer.php";?>

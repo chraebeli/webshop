@@ -20,7 +20,6 @@ function add_param($url, $name, $value)
 
 function allocate($language, $pageId)
 {
-    echo $pageId;
     switch ($pageId) {
         case "item_Order":
             shipping_address();
@@ -39,7 +38,6 @@ function allocate($language, $pageId)
             items($language, $pageId);
             break;
         case -1:
-            echo "$pageId is -1";
             items($language, $pageId);
             break;
     }
