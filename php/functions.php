@@ -164,22 +164,27 @@ function items($language, $pageId)
 
         $headers = array("Bild", "Art. Nr.", "Beschreibung", "Preis", "", "");
         echo "<table class=mainTable><tr><th>" . implode('</th><th>', $headers) . "</tr>";
+
         $db = new mysqli("localhost", "root", "", "webshop");
         if ($db->connect_errno > 0) {die("Unable  to  connect  to  database  [" . $db->connect_error . "]");
         }
+
         if (!$result = $db->query("SELECT  *  FROM  item;")) {
             die("There  was  an  error  running  the  query  [" . $db->error . "]");
         }
         while ($item = $result->fetch_assoc()) {
-            $url = createURL($language, $item["art.-Nr."]);
-            echo "
+            if ($item["category"] == $pageId || $pageId == -1) {
+                $url = createURL($language, $item["art.-Nr."]);
+                echo "
             <tr><td> <a class=  item  href=   $url >" . "<img src=../images/Items/" . $item["art.-Nr."] . ".jpg width=150> </a>
             </td><td>" . $item["art.-Nr."] . "
             </td><td>" . $item["beschreibung"] . "
             </td><td>" . $item["preis"] . "
             </td><td><input  type=text placeholder=Stückzahl></td>
-            <td><a class=  item  href= $url ><input  type=submit value='In den Warenkorb'></td><a/>";
+            <td><a class=  item  href= $url ><input  type=submit value='In den Warbenkorb'></td><a/>";
+            }
         }
+
         echo "</tbody> </table>";
         $db->close();
     }
@@ -197,30 +202,6 @@ function languages($language, $pageId)
         echo strtoupper($l) . '</a>';
     }
 }
-
-/*function makeHeader($language, $pageId)
-{
-    echo "<header>
-        <nav class=navigation-bar>
-            <a href=pages/contact.html>Kontakt</a>
-            <a href=pages/help.html>Hilfe</a>
-            <a href=pages/aboutus.html>Über uns</a>
-            <a href=https://www.facebook.com/>Social Media</a>
-            <?php " . languages($language, $pageId) . "?>
-            <span class=right> | </span>
-            <a class=right href=pages/register.html>Registrieren</a>
-            <a class=right href=pages/login.html >Anmelden</a>
-        </nav>
-        <div class=logobar>
-            <a href=index.php> <img src=images/Logo.png width=120 alt=logo></a>
-            <input type=text placeholder=Search.. name=search>
-            <a href=#result class=material-icons style= vertical-align: middle;text-decoration:none>search</a>
-            <?php " . content($pageId) . "?>
-            <a href=pages/shoppingcart.html class=material-icons right style=vertical-align: middle; text-decoration: none>shopping_cart</a>
-        </div>
-</header>";
-
-}*/
 
 function content($pageId)
 {

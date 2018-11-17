@@ -1,7 +1,7 @@
 $(function () {
   var Accordion = function (el, multiple) {
     this.el = el || {};
-    // more then one submenu open?
+
     this.multiple = multiple || false;
 
     var dropdownlink = this.el.find('.dropdownlink');

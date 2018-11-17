@@ -14,8 +14,6 @@ $pageId = get_param('id', -1);
 
 <body>
     <?php include "header.php";?>
-
-
     <div class="main">
         <nav class="navigation_main">
             <?php include "navigation.php";?>
@@ -36,8 +34,9 @@ $pageId = get_param('id', -1);
             <p><label>Password</label> <input type="password" name="pw" minlength="6" maxlength="12" required
                     placeholder="6-12 characters"> </p>
             <p><label>Password wiederholen</label> <input type="password" name="pw"> </p>
-            <p><input type="submit" value="Registrieren"></p>
             <p><input type="checkbox" name="agb"> <label>Ja, ich akzeptiere die Allgemine Geschäftsbedingungen</label></p>
+            <p><input type="submit" value="Registrieren"></p>
+
         </form>
     </div>
 	<footer class="footer">

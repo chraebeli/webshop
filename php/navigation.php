@@ -1,37 +1,37 @@
-<ul class="accordion-menu">
-    <li>
-        <div class="dropdownlink"><i class="fa fa-industry" aria-hidden="true"></i>Anlagen
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+<?php
+
+$db = new mysqli("localhost", "root", "", "webshop");
+if ($db->connect_errno > 0) {
+    die("Unable  to  connect  to  database  [" . $db->connect_error . "]");
+}
+
+if (!$result = $db->query("SELECT  *  FROM  category ORDER BY main_category, stufe, category ASC;")) {
+    die("There  was  an  error  running  the  query  [" . $db->error . "]");
+}
+
+echo "<ul class=accordion-menu>";
+$category = $result->fetch_assoc();
+$counter = 0;
+while ($counter++ < $result->num_rows) {
+
+    echo "<li>
+        <div class='dropdownlink'><i class='$category[icon]' aria-hidden='true'></i>'$category[category]'
+        <i class='$category[icon]' aria-hidden='true'></i>
         </div>
-        <ul class="submenuItems">
-            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>Anlagen anzeigen</a></li>
-            <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Anlagen hinzufügen</a></li>
-            <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Anlagen bearbeiten</a></li>
-            <li><a href="#"><i class="fa fa-trash-alt" aria-hidden="true"></i>Anlagen löschen</a></li>
-        </ul>
-    </li>
-    <li>
-        <div class="dropdownlink"><i class="fa fa-users" aria-hidden="true"></i>Kunden
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </div>
-        <ul class="submenuItems">
-            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>Kunden anzeigen</a></li>
-            <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Kunden hinzufügen</a></li>
-            <li><a href="#"><i class="fa fa-user-cog" aria-hidden="true"></i>Kunden bearbeiten</a></li>
-            <li><a href="#"><i class="fa fa-user-minus" aria-hidden="true"></i>Kunden löschen</a></li>
-        </ul>
-    </li>
-    <li>
-        <div class="dropdownlink"><i class="fa fa-tasks" aria-hidden="true"></i>Zuordnung
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </div>
-        <ul class="submenuItems">
-            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>Zuordnung anzeigen</a></li>
-            <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Zuordnung hinzufügen</a></li>
-            <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Zuordnung bearbeiten</a></li>
-            <li><a href="#"><i class="fa fa-trash-alt" aria-hidden="true"></i>Zuordnung löschen</a></li>
-        </ul>
-    </li>
-</ul>
+        <ul class=submenuItems>";
+    while ($category = $result->fetch_assoc()) {
+        if ($category["stufe"] == 1) {
+            break;
+        }
+        $counter++;
+        $url = createURL($language, $category["category"]);
+        echo "<li><a href=$url><i class='$category[icon]' aria-hidden='true'></i>$category[category]</a></li>";
+    }
+    echo "</ul></li>";
+}
+
+echo "</ul>
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'> </script>
-<script src="../js/index.js"></script>
+<script src=../js/index.js></script>";
+
+$db->close();
