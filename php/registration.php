@@ -1,30 +1,24 @@
 <?php
-
+include_once "authentication.inc.php";
 include "functions.php";
 
 $language = get_param('lang', 'en');
 $pageId = get_param('id', -1);
-
 ?>
 
-<!DOCTYPE  html>
 <html lang="en">
-
 
 <head>
     <?php include "head.php";?>
 </head>
 
 <body>
-    <header>
-        <?php include "header.php";?>
-    </header>
+    <?php include "header.php";?>
 
 
     <div class="main">
         <nav class="navigation_main">
             <?php include "navigation.php";?>
-            <h3>Please Login</h3>
         </nav>
         <form action="writedb.php" method="post">
             <p>Anrede<select required name="title">
@@ -46,4 +40,8 @@ $pageId = get_param('id', -1);
             <p><input type="checkbox" name="agb"> <label>Ja, ich akzeptiere die Allgemine Geschäftsbedingungen</label></p>
         </form>
     </div>
+	<footer class="footer">
+        <?php include "footer.php";?>
+    </footer>
 </body>
+</html>
