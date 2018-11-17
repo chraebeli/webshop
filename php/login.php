@@ -33,7 +33,6 @@ $pageId = get_param('id', -1);
             <input type="password" name="pw">
         </p>
         <p><input type="submit" value="Login"></p>
-         <p><input type="submit" value="Loginn"></p>
     </form>
     </div>
 </body>

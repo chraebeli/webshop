@@ -8,12 +8,31 @@ if (isset($_POST["email"]) && isset($_POST["pw"])) {
     }
 
 }
-if (!isset($_SESSION["email"])) {
+/*if (!isset($_SESSION["email"])) {
     echo "<!DOCTYPE  html>\n";
     echo '<a href="../index.php">Please log in</a>.';
     exit;
 }
+*/
 
+function check_session(){
+	if (!isset($_SESSION["email"])) {
+		echo "<!DOCTYPE html>\n";
+		echo "<form action='main.php' method='post'>
+        <p><label>E-Mail</label><input type='email' name='email'>
+        </p>
+        <p><label>Password</label>
+            <input type='password' name='pw'>
+        </p>
+        <p><input type='submit' value='Anmelden'></p>
+    </form>";
+	echo "<a class=right href='registration.php'>Registrieren</a>";
+	}
+	if (isset($_SESSION["email"])) {
+		echo "<!DOCTYPE html>\n";
+		echo "<a class=right href='logout.php'>Abmelden</a>";
+	}
+}
 function checklogin($email, $password)
 {
     $db = new mysqli("localhost", "root", "", "webshop");

@@ -180,7 +180,7 @@ function items($language, $pageId)
             </td><td>" . $item["beschreibung"] . "
             </td><td>" . $item["preis"] . "
             </td><td><input  type=text placeholder=Stückzahl></td>
-            <td><a class=  item  href= $url ><input  type=submit value='In den Warbenkorb'></td><a/>";
+            <td><a class=  item  href= $url ><input  type=submit value='In den Warenkorb'></td><a/>";
         }
         echo "</tbody> </table>";
         $db->close();
@@ -200,7 +200,7 @@ function languages($language, $pageId)
     }
 }
 
-function makeHeader($language, $pageId)
+/*function makeHeader($language, $pageId)
 {
     echo "<header>
         <nav class=navigation-bar>
@@ -222,7 +222,7 @@ function makeHeader($language, $pageId)
         </div>
 </header>";
 
-}
+}*/
 
 function content($pageId)
 {

@@ -13,9 +13,7 @@ $pageId = get_param('id', -1);
 </head>
 
 <body>
-    <header>
-        <?php include "header.php";?>
-    </header>
+    <?php include "header.php";?>
 
 
     <div class="main">
