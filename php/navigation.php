@@ -32,7 +32,6 @@
             <li><a href="#"><i class="fa fa-trash-alt" aria-hidden="true"></i>Zuordnung löschen</a></li>
         </ul>
     </li>
-
 </ul>
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'> </script>
 <script src="../js/index.js"></script>
