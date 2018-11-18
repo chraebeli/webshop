@@ -34,7 +34,7 @@ function allocate($language, $pageId)
             confirm_shipping();
             break;
         case is_string($pageId):
-            echo "$pageId is string";
+            /*echo "$pageId is string";*/
             items($language, $pageId);
             break;
         case -1:
@@ -139,8 +139,8 @@ function items($language, $pageId)
     }
 
     if ($pageId > 10000) {
-
-        $options = "<select class=dropdown_seize><option value=1 selected disabled hidden>Grössen wählen</option>";
+		/*
+        
 
         foreach ($items as $item) {
             if (count($item) == 3 && $pageId == $item[0]) {
@@ -155,11 +155,28 @@ function items($language, $pageId)
 
         }
         ;
-
-        echo "<article><div class=product_img><img src=images/Items/$pageId.jpg width=450px> </div>" . "<div class=product_descritpion><h2>" . $items[array_search($pageId, array_column($items, '0'))][1] . "<h3>CHF  " . $items[array_search($pageId, array_column($items, '0'))][2] .
-        $options . " <select/><a class=  item  href=" . createURL($language, "item_Order") . "><input class=button_order type=submit value=Bestellen />
-        </form>";
-
+		*/
+		$options = "<select class=dropdown_seize><option value=1 selected disabled hidden>Grössen wählen</option>";
+		$db = new mysqli("localhost", "root", "", "webshop");
+		if ($db->connect_errno > 0) {die("Unable  to  connect  to  database  [" . $db->connect_error . "]");
+        }
+		$result = $db->query("SELECT * FROM `item` WHERE `art.-Nr.` =".$pageId.";");
+		if (!$result) {
+            die("There  was  an  error  running  the  query  [" . $db->error . "]");
+        }
+		$item = $result->fetch_assoc();
+		$db->close();
+		echo 
+			"<article>
+				<div class=product_img>
+					<img src=../images/Items/$pageId.jpg width=450px> 
+				</div>" . 
+				"<div class=product_descritpion>
+					<h2>" . $item["beschreibung"] . "</h2>
+					<h3>CHF  " . $item['preis'] . "</h3>" .
+					$options . " <select/>
+					<a class=  item  href=" . createURL($language, "item_Order") . "><input class=button_order type=submit value=Bestellen />
+			</article>";
     } else {
 
         $headers = array("Bild", "Art. Nr.", "Beschreibung", "Preis", "", "");
