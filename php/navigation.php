@@ -15,7 +15,7 @@ $counter = 0;
 while ($counter++ < $result->num_rows) {
 
     echo "<li>
-        <div class='dropdownlink'><i class='$category[icon]' aria-hidden='true'></i>'$category[category]'
+        <div class='dropdownlink'><i class='$category[icon]' aria-hidden='true'></i>$category[category]
         <i class='$category[icon]' aria-hidden='true'></i>
         </div>
         <ul class=submenuItems>";
